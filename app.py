@@ -60,7 +60,7 @@ elif menu == "Imputasi Missing Value Menggunakan KNN":
         df_2 = df_imputed[['RR']]
         df_comparison = pd.concat([df_1, df_2], ignore_index=True)
         st.write('Data yang telah dilakukan Proses Imputasi Missing Value dengan KNN')
-        st.write(df_imputed)
+        st.write(df_comparison)
     else:
         st.write("Silahkan masukkan dataset terlebih dahulu.")
 elif menu == "Deteksi Outlier Menggunakan IQR dan Interpolasi Linear":
