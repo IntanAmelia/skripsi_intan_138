@@ -124,7 +124,7 @@ elif menu == "Model LSTM":
     df_normalisasi = st.session_state.df_normalisasi
     scaler = st.session_state.scaler
     scaled_data = st.session_state.scaled_data
-    if df_imputed is not None and scaler is not None and scaled_data is not None and df_normalisasi is not None:
+    if scaler is not None and scaled_data is not None and df_normalisasi is not None:
         if st.button('Load Model'):
             model = load_model('model_knn_n_4_epochs_100_lr_0.01_ts_25.h5')
             st_session_state.model = model
