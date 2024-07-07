@@ -106,16 +106,18 @@ elif menu == "Deteksi Outlier Menggunakan IQR dan Interpolasi Linear":
         st.write('Silahkan melakukan imputasi missing value terlebih dahulu.')
 elif menu == "Normalisasi Data":
     df_imputed = st.session_state.df_imputed
-    if df_imputed is not None:
+    df_interpolasi = st.session_state.df_interpolasi
+    if df_imputed is not None and df_interpolasi is not None:
         scaler = MinMaxScaler(feature_range=(0, 1))
         st.session_state.scaler = scaler
         scaled_data = scaler.fit_transform(df_imputed['interpolasi outlier'].values.reshape(-1,1))
-        df_imputed['Normalisasi'] = scaled_data
-        df_normalisasi = df_imputed[['interpolasi outlier','Normalisasi']]
-        st.session_state.df_imputed = df_imputed
+        normalisasi = pcd.read_csv('normalisasi_n_4.csv')
+        df_normalisasi = normalisasi
+        df_compare = pd.concat([df_interpolasi, normalisasi], axis=1)
+        st.session_state.df_normalisasi = df_normalisasi
         st.session_state.scaled_data = scaled_data
         st.write('Data setelah dilakukan normalisasi :')
-        st.write(df_normalisasi)
+        st.write(df_compare)
     else:
         st.write('Silahkan masukkan dataset terlebih dahulu')
 elif menu == "Model LSTM":
