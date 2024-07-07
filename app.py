@@ -101,7 +101,7 @@ elif menu == "Deteksi Outlier Menggunakan IQR dan Interpolasi Linear":
         df_compare = pd.concat([df_interpolasi_0, df_interpolasi], axis=1)
         st.session_state.df_interpolasi = df_interpolasi
         st.write('Data setelah dilakukan interpolasi :')
-        st.dataframe(df_imputed[['interpolasi', 'interpolasi outlier']]df_compare)
+        st.dataframe(df_compare)
     else:
         st.write('Silahkan melakukan imputasi missing value terlebih dahulu.')
 elif menu == "Normalisasi Data":
