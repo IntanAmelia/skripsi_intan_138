@@ -54,6 +54,7 @@ elif menu == "Imputasi Missing Value Menggunakan KNN":
         missing_data = df[df.isna().any(axis=1)]
         st.write('Data yang Mempunyai Missing Value :')
         st.write(missing_data)
+        imputed = df.copy()
         df_imputed = pd.read_csv('imputasi_fix_n_4.csv')
         st.session_state.df_imputed = df_imputed
         st.write('Data yang telah dilakukan Proses Imputasi Missing Value dengan KNN')
