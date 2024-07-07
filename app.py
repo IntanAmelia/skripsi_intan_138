@@ -111,7 +111,7 @@ elif menu == "Normalisasi Data":
         scaler = MinMaxScaler(feature_range=(0, 1))
         st.session_state.scaler = scaler
         scaled_data = scaler.fit_transform(df_imputed['interpolasi outlier'].values.reshape(-1,1))
-        normalisasi = pcd.read_csv('normalisasi_n_4.csv')
+        normalisasi = pd.read_csv('normalisasi_n_4.csv')
         df_normalisasi = normalisasi
         df_compare = pd.concat([df_interpolasi, normalisasi], axis=1)
         st.session_state.df_normalisasi = df_normalisasi
