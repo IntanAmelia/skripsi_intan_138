@@ -57,7 +57,7 @@ elif menu == "Imputasi Missing Value Menggunakan KNN":
         df_imputed = pd.read_csv('imputasi_fix_n_4.csv')
         st.session_state.df_imputed = df_imputed
         df_1 = df[['Tanggal', 'RR']]
-        df_2 = df_imputed[['RR']]
+        df_2 = df_imputed[['RR_Imputed']]
         df_comparison = pd.concat([df_1, df_2], ignore_index=True)
         st.write('Data yang telah dilakukan Proses Imputasi Missing Value dengan KNN')
         st.write(df_comparison)
