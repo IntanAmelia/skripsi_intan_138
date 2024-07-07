@@ -70,7 +70,7 @@ elif menu == "Deteksi Outlier Menggunakan IQR dan Interpolasi Linear":
         df_imputed['interpolasi'] = series_interpolated
         st.write('Interpolasi Data 0 :')
         st.dataframe(df_imputed[['RR_Imputed', 'interpolasi']])
-        for _ in range(10):
+        for _ in range(1):
             Q1 = df_imputed['interpolasi'].quantile(0.25)
             Q3 = df_imputed['interpolasi'].quantile(0.75)
             IQR = Q3 - Q1
@@ -96,8 +96,12 @@ elif menu == "Deteksi Outlier Menggunakan IQR dan Interpolasi Linear":
                         data_cleaned[i] = (df_imputed['interpolasi'].iloc[i-1] + df_imputed['interpolasi'].iloc[i+1]) / 2
         df_imputed['interpolasi outlier'] = data_cleaned
         st.session_state.df_imputed = df_imputed
+        df_interpolasi_0 = df_imputed['interpolasi']
+        df_interpolasi = pd.read_csv('interpolasi_n_4')
+        df_compare = pd.concat([df_interpolasi_0, df_interpolasi], axis=1)
+        st.session_state.df_interpolasi = df_interpolasi
         st.write('Data setelah dilakukan interpolasi :')
-        st.dataframe(df_imputed[['interpolasi', 'interpolasi outlier']])
+        st.dataframe(df_imputed[['interpolasi', 'interpolasi outlier']]df_compare)
     else:
         st.write('Silahkan melakukan imputasi missing value terlebih dahulu.')
 elif menu == "Normalisasi Data":
