@@ -97,7 +97,7 @@ elif menu == "Deteksi Outlier Menggunakan IQR dan Interpolasi Linear":
         df_imputed['interpolasi outlier'] = data_cleaned
         st.session_state.df_imputed = df_imputed
         df_interpolasi_0 = df_imputed['interpolasi']
-        df_interpolasi = pd.read_csv('interpolasi_n_4')
+        df_interpolasi = pd.read_csv('interpolasi_n_4.csv')
         df_compare = pd.concat([df_interpolasi_0, df_interpolasi], axis=1)
         st.session_state.df_interpolasi = df_interpolasi
         st.write('Data setelah dilakukan interpolasi :')
