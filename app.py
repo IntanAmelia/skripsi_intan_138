@@ -127,7 +127,7 @@ elif menu == "Model LSTM":
     if scaler is not None and scaled_data is not None and df_normalisasi is not None:
         if st.button('Load Model'):
             model = load_model('model_knn_n_4_epochs_100_lr_0.01_ts_25.h5')
-            st_session_state.model = model
+            st.session_state.model = model
             st.write("Model telah disimpan dan dilatih.")
     else:
         st.write('Silahkan melakukan proses normalisasi data terlebih dahulu.')
