@@ -54,11 +54,11 @@ elif menu == "Imputasi Missing Value Menggunakan KNN":
         missing_data = df[df.isna().any(axis=1)]
         st.write('Data yang Mempunyai Missing Value :')
         st.write(missing_data)
-        imputed = df.copy()
         df_imputed = pd.read_csv('imputasi_fix_n_4.csv')
         st.session_state.df_imputed = df_imputed
+        df_comparison = pd.concat([[df, df_imputed]], axis=1)
         st.write('Data yang telah dilakukan Proses Imputasi Missing Value dengan KNN')
-        st.write(df_imputed)
+        st.write(df_comparison)
     else:
         st.write("Silahkan masukkan dataset terlebih dahulu.")
 elif menu == "Deteksi Outlier Menggunakan IQR dan Interpolasi Linear":
